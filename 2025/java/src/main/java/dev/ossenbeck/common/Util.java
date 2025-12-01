@@ -26,4 +26,12 @@ public class Util {
     public static Long parseLong(String line) {
         return parseNumbers(line, Long::parseLong).getFirst();
     }
+
+    public static int mod(int value, int mod) {
+        return (value % mod + mod) % mod;
+    }
+
+    public static long mod(long value, long mod) {
+        return (value % mod + mod) % mod;
+    }
 }
