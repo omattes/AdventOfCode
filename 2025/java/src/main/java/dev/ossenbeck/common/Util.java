@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 public class Util {
     public static final Pattern NUMBER_PATTERN = Pattern.compile("(-?\\d+)");
+    public static final Pattern COMMA_DELIMITER = Pattern.compile(",");
 
     private static <T> List<T> parseNumbers(String line, Function<String, T> parseFunction) {
         return NUMBER_PATTERN.matcher(line).results()
