@@ -6,6 +6,7 @@ import java.util.regex.MatchResult;
 import java.util.regex.Pattern;
 
 public class Util {
+    public static final Pattern DOUBLE_LINE_SEPARATOR = Pattern.compile(System.lineSeparator() + System.lineSeparator());
     public static final Pattern NUMBER_PATTERN = Pattern.compile("(-?\\d+)");
     public static final Pattern COMMA_DELIMITER = Pattern.compile(",");
 
@@ -18,6 +19,10 @@ public class Util {
 
     public static List<Integer> parseNumbers(String line) {
         return parseNumbers(line, Integer::parseInt);
+    }
+
+    public static List<Long> parseLongs(String line) {
+        return parseNumbers(line, Long::parseLong);
     }
 
     public static Integer parseInteger(String line) {
