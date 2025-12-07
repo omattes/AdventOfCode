@@ -16,7 +16,7 @@ class PuzzleTest extends SolvableTest<Integer, Integer> {
 
     @Override
     protected Integer getExpectedResultPartOne() {
-        return -1;
+        return 13;
     }
 
     @Override
@@ -26,6 +26,6 @@ class PuzzleTest extends SolvableTest<Integer, Integer> {
 
     @Override
     protected Integer getExpectedResultPartTwo() {
-        return -1;
+        return 43;
     }
 }
