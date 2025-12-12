@@ -1,5 +1,7 @@
 package dev.ossenbeck;
 
+import dev.ossenbeck.common.Grid;
+
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
@@ -31,5 +33,9 @@ public record InputReader(Path input) {
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
+    }
+
+    public Grid asGrid() {
+        return new Grid(asStream().map(String::toCharArray).toArray(char[][]::new));
     }
 }

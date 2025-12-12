@@ -1,5 +1,6 @@
 package dev.ossenbeck.common;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.IntStream;
@@ -8,6 +9,10 @@ import java.util.stream.Stream;
 import static dev.ossenbeck.common.Util.mod;
 
 public record Grid(char[][] grid) {
+    public static Grid from(List<String> input) {
+        return new Grid(input.stream().map(String::toCharArray).toArray(char[][]::new));
+    }
+
     public boolean isInBounds(Coordinate coordinate) {
         return coordinate.y() >= 0 && coordinate.y() < height()
                 && coordinate.x() >= 0 && coordinate.x() < width();
@@ -27,6 +32,10 @@ public record Grid(char[][] grid) {
 
     public char charAt(Coordinate coordinate) {
         return grid[coordinate.y()][coordinate.x()];
+    }
+
+    public char charAt(int x, int y) {
+        return grid[y][x];
     }
 
     public void replaceCharAt(Coordinate coordinate, char newChar) {
@@ -84,5 +93,21 @@ public record Grid(char[][] grid) {
                         .mapToObj(y -> grid[y].clone())
                         .toArray(char[][]::new)
         );
+    }
+
+    public Stream<char[]> stream() {
+        return Arrays.stream(grid);
+    }
+
+    public Grid transpose() {
+        var rows = height();
+        var cols = width();
+        var transposed = new char[cols][rows];
+        for (var r = 0; r < rows; r++) {
+            for (var c = 0; c < cols; c++) {
+                transposed[c][r] = grid[r][c];
+            }
+        }
+        return new Grid(transposed);
     }
 }

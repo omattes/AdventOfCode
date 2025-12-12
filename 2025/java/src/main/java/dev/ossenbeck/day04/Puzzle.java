@@ -13,11 +13,7 @@ public class Puzzle implements Solvable<Integer, Integer> {
     private final Grid grid;
 
     public Puzzle(InputReader inputReader) {
-        this.grid = new Grid(
-                inputReader.asStream()
-                        .map(String::toCharArray)
-                        .toArray(char[][]::new)
-        );
+        this.grid = inputReader.asGrid();
     }
 
     @Override
