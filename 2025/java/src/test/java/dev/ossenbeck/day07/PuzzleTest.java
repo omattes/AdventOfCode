@@ -6,26 +6,26 @@ import dev.ossenbeck.SolvableTest;
 
 import java.nio.file.Path;
 
-class PuzzleTest extends SolvableTest<Integer, Integer> {
+class PuzzleTest extends SolvableTest<Integer, Long> {
     private static final Path INPUT = COMMON_PATH.resolve("day07", "input.txt");
 
     @Override
-    protected Solvable<Integer, Integer> getSutPartOne() {
+    protected Solvable<Integer, Long> getSutPartOne() {
         return new Puzzle(new InputReader(INPUT));
     }
 
     @Override
     protected Integer getExpectedResultPartOne() {
-        return -1;
+        return 21;
     }
 
     @Override
-    protected Solvable<Integer, Integer> getSutPartTwo() {
+    protected Solvable<Integer, Long> getSutPartTwo() {
         return new Puzzle(new InputReader(INPUT));
     }
 
     @Override
-    protected Integer getExpectedResultPartTwo() {
-        return -1;
+    protected Long getExpectedResultPartTwo() {
+        return 40L;
     }
 }
