@@ -1,9 +1,10 @@
 package dev.ossenbeck.common;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class Ranges {
+public class Ranges implements Iterable<Range> {
     private final List<Range> values = new ArrayList<>();
 
     public Ranges add(Ranges ranges) {
@@ -79,5 +80,10 @@ public class Ranges {
         return "Ranges{" +
                 "values=" + values +
                 '}';
+    }
+    
+    @Override
+    public Iterator<Range> iterator() {
+        return values.iterator();
     }
 }
